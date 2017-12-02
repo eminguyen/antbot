@@ -1,21 +1,21 @@
 # Antbot
-A [Discord](https://discordapp.com/) bot that utilizes the [JDA}(https://github.com/DV8FromTheWorld/JDA) wrapper.
+A [Discord](https://discordapp.com/) bot that utilizes the [JDA](https://github.com/DV8FromTheWorld/JDA) wrapper.
 
-##Commands:
+## Commands:
 
-##Current Task List:
+## Current Task List:
 -This bot is currently being worked on.
 
-###Basic Functionality
+### Basic Functionality
 - ping command
 - hello command
 
-###Moderation
+### Moderation
 - autorole
 - assign role
 - server notifications on new member
 
-##Future Task List:
+## Future Task List:
 - meme command
 - League of Legends API look up
 - Hearthstone API look up
