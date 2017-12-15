@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.exceptions.*;
 import net.dv8tion.jda.core.hooks.*;
 
-public class Listener extends ListenerAdapter {
+public class Ant extends ListenerAdapter {
     public static void main(String[] args)
         throws LoginException, RateLimitedException, InterruptedException
     {
@@ -19,7 +19,7 @@ public class Listener extends ListenerAdapter {
             JDA jda = new JDABuilder(AccountType.BOT)
                 .setToken("MzkwNzE0OTI2Mjc0MTgzMTc4.DROPcQ.fVZWPvOI-jk89-GHQHviHNBhb3A")
                 .buildBlocking();
-            jda.addEventListener(new Listener());
+            jda.addEventListener(new Ant());
     	}
     	catch(LoginException e)
     	{
@@ -41,11 +41,11 @@ public class Listener extends ListenerAdapter {
     	String content = null;
 	    if(event.isFromType(ChannelType.TEXT))
         {
-        content = event.getMessage().getContent();
+            content = event.getMessage().getContent();
         }
 	    if(content.equals("ping"))
         {
-        event.getChannel().sendMessage("pong").queue();
+            event.getChannel().sendMessage("pong").queue();
         }
     }
 }
