@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.exceptions.*;
 import net.dv8tion.jda.core.hooks.*;
 
-public class Ant extends ListenerAdapter {
+public class Ant {
     public static void main(String[] args)
         throws LoginException, RateLimitedException, InterruptedException
     {
@@ -33,19 +33,5 @@ public class Ant extends ListenerAdapter {
     	{
     		e.printStackTrace();
     	}
-    }
-
-    @Override
-    public void onMessageReceived(MessageReceivedEvent event)
-    {
-    	String content = null;
-	    if(event.isFromType(ChannelType.TEXT))
-        {
-            content = event.getMessage().getContent();
-        }
-	    if(content.equals("ping"))
-        {
-            event.getChannel().sendMessage("pong").queue();
-        }
     }
 }
