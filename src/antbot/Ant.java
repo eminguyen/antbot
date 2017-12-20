@@ -16,8 +16,9 @@ public class Ant {
     {
     	try
     	{
+    		Settings settings = new Settings();
             JDA jda = new JDABuilder(AccountType.BOT)
-                .setToken("MzkwNzE0OTI2Mjc0MTgzMTc4.DROPcQ.fVZWPvOI-jk89-GHQHviHNBhb3A")
+                .setToken(settings.getToken())
                 .buildBlocking();
             jda.addEventListener(new Ant());
     	}
