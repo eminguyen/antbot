@@ -1,4 +1,4 @@
-package listeners;
+package antbot.listeners;
 
 public class Moderation {
 

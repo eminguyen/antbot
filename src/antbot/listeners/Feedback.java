@@ -1,4 +1,4 @@
-package listeners;
+package antbot.listeners;
 
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
