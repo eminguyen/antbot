@@ -16,7 +16,7 @@ public class Ant {
     {
     	try
     	{
-    		Settings settings = new Settings();
+    		Settings settings = new Settings("src/antbot/settings.properties");
             JDA jda = new JDABuilder(AccountType.BOT)
                 .setToken(settings.getToken())
                 .buildBlocking();
