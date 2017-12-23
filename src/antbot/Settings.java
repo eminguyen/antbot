@@ -71,4 +71,19 @@ public class Settings
 		return prop.getProperty("prefix");
 	}
 	
+	/**Getter method for the bot invite
+	 * @return String invite link to add bot to a server
+	 */
+	public String getBotInvite()
+	{
+	    return prop.getProperty("botinvite");
+	}
+	
+	/**Getter method for the server invite
+	 * @return String invite link for the bot's server
+	 */
+	public String getServerInvite()
+	{
+	    return prop.getProperty("serverinvite");
+	}
 }
