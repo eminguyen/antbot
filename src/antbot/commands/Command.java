@@ -39,7 +39,8 @@ public abstract class Command
      * @return String returns true if command is allowed, else returns
      * an error message
      */
-    public String allow(String[] args, MessageReceivedEvent event) {
+    public String allow(String[] args, MessageReceivedEvent event) 
+    {
 		return "The command has not been implemented";
 	}
     
@@ -47,6 +48,7 @@ public abstract class Command
      * @param args the arguments for the command
      * @param event the event of the command's call
      */
-    public void action(String[] args, MessageReceivedEvent event) {
+    public void action(String[] args, MessageReceivedEvent event) 
+    {
 	}
 }
