@@ -3,10 +3,12 @@ package antbot.commands.util;
 import antbot.commands.Command;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
-public class PingCommand extends Command {
+public class PingCommand extends Command 
+{
 
 	/**Constructor for the ping command*/
-	public PingCommand() {
+	public PingCommand() 
+	{
 		super("ping", "Checks if bot is on");
 	}
 	
