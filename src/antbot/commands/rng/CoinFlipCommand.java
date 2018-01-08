@@ -1,4 +1,4 @@
-package antbot.commands.util;
+package antbot.commands.rng;
 
 import java.util.Random;
 
