@@ -6,10 +6,14 @@ A [Discord](https://discordapp.com/) bot that utilizes the [JDA](https://github.
 ### Basic Functionality
 - custom settings
 - ping command
+- hello command
+
+### RNG Commands
+- diceroll
+- coinflip
+- 8ball
 
 ## Current Task List:
-- hello command
-- diceroll, coinflip, 8ball command
 - autorole command
 - kick user command
 - shop feature
