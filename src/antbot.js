@@ -33,10 +33,35 @@ client.on('ready', () => {
   client.user.setActivity('with my code');
 });
 
+function commandCheck(message)
+{
+  if(!message.author.bot)
+  {
+    if(message.content.startsWith(config.prefix))
+    {
+      var command = message.content.split(" ")[0].substring(config.prefix.length);
+      var argument = message.content.substring(command.length+config.prefix.length+1);
+    }
+    else if(message.isMentioned(client.user))
+    {
+      try
+      {
+        var command = message.content.split(" ")[1];
+        var argument = message.content.substring(client.user.mention().length+command.length+config.prefix.length+1);
+      }
+      catch(error)
+      {
+        message.channel.send("Type '!help' or '@" + client.user.username + " help' for a list of commands");
+      }
+    }
+  }
+}
+
 client.on('message', message => {
   if (message.content === '!ping') {
     message.channel.send('pong!')
   }
+  commandCheck(message);
 });
 
 client.login(config.token);
