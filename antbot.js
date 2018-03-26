@@ -38,22 +38,11 @@ const modulesList = fs.readdirSync(modulesPath);
 modulesList.forEach(modulePath => require(path.resolve(modulesPath, modulePath)));
 for(var i = 0; i < modulesList.length; i++) {
   var module = require(modulesPath + modulesList[i]);
-  for(var j = 0; j < module.commands.length; j++) {
+  for(var j = 0; j <= module.commands.length; j++) {
     var commandName = module.commands[j];
     commandsList[commandName] = module[commandName];
   }
 }
-
-/*
-//Load commands list
-try { //try loading plugins from a non standalone install first
-    plugin_directory = "./commands/";
-    plugin_folders = getDirectories(plugin_directory);
-} catch(eror){//load paths for an Electrify install
-    exec_dir = path.dirname(process.execPath) + "/resources/default_app/"; //need this to change node prefix for npm installs
-    plugin_directory = path.dirname(process.execPath) + "/resources/default_app/plugins/";
-    plugin_folders = getDirectories(plugin_directory);
-}*/
 
 // Function to check for commands and isolate name and arguments
 var commandCheck = (message) => {
@@ -85,7 +74,6 @@ var commandCheck = (message) => {
       return;
     }
     catch(error) {
-      console.log(commandsList);
       message.channel.send("Command not found");
       return;
     }

@@ -1,6 +1,7 @@
 module.exports = {
   commands: [
-    "ping"
+    "ping",
+    "hello",
   ],
 
   ping: {
@@ -10,5 +11,13 @@ module.exports = {
     message.channel.send("pong!");
     }
   },
+
+  hello: {
+    usage: "!hello",
+    description: "Tells the user hello",
+    method: (client, message, argument) => {
+    message.channel.send("Hello " + message.author + "!");
+    }
+  }
 
 }
