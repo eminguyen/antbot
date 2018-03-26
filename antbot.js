@@ -68,16 +68,17 @@ var commandCheck = (message) => {
       }
     }
 
-    //Attempts to call the command
-    try {
-      commandsList[command].method(client, message, argument);
-      return;
+    if(command)
+      //Attempts to call the command
+      try {
+        commandsList[command].method(client, message, argument);
+        return;
+      }
+      catch(error) {
+        message.channel.send("Command not found");
+        return;
+      }
     }
-    catch(error) {
-      message.channel.send("Command not found");
-      return;
-    }
-  }
   return;
 }
 
