@@ -2,7 +2,8 @@ module.exports = {
   commands: [
     "ping",
     "hello",
-    "userid"
+    "userid",
+    "say"
   ],
 
   ping: {
@@ -26,6 +27,19 @@ module.exports = {
     description: "Tells the user their id",
     method: (client, message, argument) => {
       message.reply("your user id is \n" + message.author.id);
+    }
+  },
+
+  say: {
+    usage: "say <message>",
+    description: "Makes AntBot repeat the message",
+    method: (client, message, argument) => {
+      if(!argument) {
+        message.channel.send("Did you want me to say something?");
+      }
+      else {
+        message.channel.send(argument);
+      }
     }
   }
 
