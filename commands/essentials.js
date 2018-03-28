@@ -24,10 +24,20 @@ module.exports = {
   },
 
   userid: {
-    usage: "!userid",
+    usage: "!userid <User Name> (optional)",
     description: "Tells the user their id",
     method: (client, message, argument) => {
-      message.reply("your user id is \n" + message.author.id);
+      try {
+        if(argument && argument != message.author.username) {
+          message.channel.send(argument + "'s id is " + client.users.find("username", argument).id);
+        }
+        else {
+          message.reply("your user id is \n" + message.author.id);
+        }
+      }
+      catch(error) {
+        message.channel.send("User is not in this server");
+      }
     }
   },
 
