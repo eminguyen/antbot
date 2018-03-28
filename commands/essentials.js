@@ -3,6 +3,7 @@ module.exports = {
     "ping",
     "hello",
     "userid",
+    "avatar",
     "say"
   ],
 
@@ -27,6 +28,25 @@ module.exports = {
     description: "Tells the user their id",
     method: (client, message, argument) => {
       message.reply("your user id is \n" + message.author.id);
+    }
+  },
+
+  avatar: {
+    usage: "avatar",
+    description: "Sends a link to the user's avatar",
+    method: (client, message, argument) => {
+      try {
+        if(argument) {
+          message.reply(client.users.find("username", argument).avatarURL);
+        }
+        else {
+          message.reply(message.author.avatarURL);
+        }
+      }
+      catch(error) {
+        console.log(error);
+        message.reply("User has no avatar!")
+      }
     }
   },
 
