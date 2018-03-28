@@ -3,6 +3,7 @@ module.exports = {
     "ping",
     "hello",
     "userid",
+    "channelid",
     "avatar",
     "say"
   ],
@@ -38,6 +39,14 @@ module.exports = {
       catch(error) {
         message.channel.send("User is not in this server");
       }
+    }
+  },
+
+  channelid: {
+    usage: "!channelid",
+    description: "Gives the id of the current channel",
+    method: (client, message, argument) => {
+      message.channel.send("The current channel's id is " + message.channel.id);
     }
   },
 
