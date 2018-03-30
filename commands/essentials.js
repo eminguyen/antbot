@@ -2,6 +2,7 @@ module.exports = {
   commands: [
     "ping",
     "hello",
+    "botid",
     "userid",
     "channelid",
     "avatar",
@@ -21,6 +22,14 @@ module.exports = {
     description: "Tells the user hello",
     method: (client, message, argument) => {
       message.channel.send("Hello " + message.author + "!");
+    }
+  },
+
+  botid: {
+    usage: "!botid",
+    description: "Gives the id of the bot",
+    method: (client, message, argument) => {
+      message.channel.send("My id is " + client.user.id);
     }
   },
 
