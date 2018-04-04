@@ -3,6 +3,7 @@ module.exports = {
     "topic",
     "channelname",
     "createvoice",
+    "createtext",
   ],
 
   "topic": {
@@ -44,6 +45,21 @@ module.exports = {
       catch(error) {
         console.log(error);
         message.channel.send("I can't make a voice channel.");
+      }
+    }
+  },
+
+  "createtext": {
+    usage: "!createtext <name of channel>",
+    description: "Creates a text channel with the desired name",
+    method: (client, message, argument) => {
+      try {
+        message.guild.createChannel(argument, "text");
+        message.channel.send("I have made the channel " + argument);
+      }
+      catch(error) {
+        console.log(error);
+        message.channel.send("I can't make a text channel.");
       }
     }
   }
