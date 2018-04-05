@@ -27,6 +27,7 @@
   "homepage": "https://github.com/eminguyen/antbot#readme",
   "dependencies": {
     "discord.js": "^11.3.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "http": "0.0.0"
   }
 }

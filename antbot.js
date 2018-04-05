@@ -6,6 +6,11 @@ app.listen(port, "0.0.0.0", function() {
   console.log("Listening on Port 3000");
 });
 
+var http = require("http");
+setInterval(function() {
+    http.get("http://antbotjs.herokuapp.com");
+}, 300000);
+
 // Require Discord.js library and Node.js
 try {
   var Discord = require("discord.js");
