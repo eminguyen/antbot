@@ -97,3 +97,5 @@ var commandCheck = (message) => {
 client.on('message', message => {
   commandCheck(message);
 });
+
+client.login(token);
