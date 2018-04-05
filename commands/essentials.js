@@ -9,7 +9,7 @@ module.exports = {
     "say"
   ],
 
-  ping: {
+  "ping": {
     usage: "!ping",
     description: "Returns pong!",
     method: (client, message, argument) => {
@@ -17,32 +17,32 @@ module.exports = {
     }
   },
 
-  hello: {
+  "hello": {
     usage: "!hello",
     description: "Tells the user hello",
     method: (client, message, argument) => {
-      message.channel.send("Hello " + message.author + "!");
+      message.channel.send(`Hello ${message.author}!`);
     }
   },
 
-  botid: {
+  "botid": {
     usage: "!botid",
     description: "Gives the id of the bot",
     method: (client, message, argument) => {
-      message.channel.send("My id is " + client.user.id);
+      message.channel.send(`My id is ${client.user.id}.`);
     }
   },
 
-  userid: {
+  "userid": {
     usage: "!userid <User Name> (optional)",
     description: "Tells the user their id",
     method: (client, message, argument) => {
       try {
         if(argument && argument != message.author.username) {
-          message.channel.send(argument + "'s id is " + client.users.find("username", argument).id);
+          message.channel.send(`${argument}'s id is ${client.users.find("username", argument).id}.`);
         }
         else {
-          message.reply("your user id is \n" + message.author.id);
+          message.reply(`your user id is \n${message.author.id}.`);
         }
       }
       catch(error) {
@@ -51,15 +51,7 @@ module.exports = {
     }
   },
 
-  channelid: {
-    usage: "!channelid",
-    description: "Gives the id of the current channel",
-    method: (client, message, argument) => {
-      message.channel.send("The current channel's id is " + message.channel.id);
-    }
-  },
-
-  avatar: {
+  "avatar": {
     usage: "avatar",
     description: "Sends a link to the user's avatar",
     method: (client, message, argument) => {
@@ -72,13 +64,12 @@ module.exports = {
         }
       }
       catch(error) {
-        console.log(error);
         message.reply("User has no avatar!")
       }
     }
   },
 
-  say: {
+  "say": {
     usage: "say <message>",
     description: "Makes AntBot repeat the message",
     method: (client, message, argument) => {

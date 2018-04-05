@@ -11,7 +11,7 @@ module.exports = {
     usage: "!channelid",
     description: "Gives the id of the current channel",
     method: (client, message, argument) => {
-      message.channel.send("The current channel's id is " + message.channel.id);
+      message.channel.send(`The current channel's id is ${message.channel.id}`);
     }
   },
 
@@ -21,7 +21,7 @@ module.exports = {
     method: (client, message, argument) => {
       try {
         message.channel.setName(argument);
-        message.channel.send("The channel's name has been set to " + argument + ".");
+        message.channel.send(`The channel's name has been set to ${argument}.`);
       }
       catch(error) {
         message.channel.send("I can't change the channel's name.");
@@ -35,10 +35,9 @@ module.exports = {
     method: (client, message, argument) => {
       try {
         message.guild.createChannel(argument, "voice");
-        message.channel.send("I have made the channel " + argument);
+        message.channel.send(`I have made the channel ${argument}`);
       }
       catch(error) {
-        console.log(error);
         message.channel.send("I can't make a voice channel.");
       }
     }
@@ -50,10 +49,9 @@ module.exports = {
     method: (client, message, argument) => {
       try {
         message.guild.createChannel(argument, "text");
-        message.channel.send("I have made the channel " + argument);
+        message.channel.send(`I have made the channel ${argument}`);
       }
       catch(error) {
-        console.log(error);
         message.channel.send("I can't make a text channel.");
       }
     }
@@ -65,8 +63,13 @@ module.exports = {
     description: "Set the channel's topic",
     method: (client, message, argument) => {
       try {
-        message.channel.setTopic(argument);
-        message.channel.send("The channel's topic has been set to " + argument + ".");
+        if(!argument) {
+          message.reply("what do you want to set the topic to?");
+        }
+        else {
+          message.channel.setTopic(argument);
+          message.channel.send(`The channel's topic has been set to ${argument}.`);
+        }
       }
       catch(error) {
         message.channel.send("I can't change the channel's topic.");

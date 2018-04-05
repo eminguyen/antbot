@@ -9,7 +9,7 @@ module.exports = {
     usage: "!coinflip",
     description: "Returns heads or tails!",
     method: (client, message, argument) => {
-      var random = (Math.floor(Math.random() * Math.floor(2)));
+      let random = (Math.floor(Math.random() * Math.floor(2)));
       if(random === 0) {
         message.channel.send("I flipped heads!");
       }
@@ -26,8 +26,8 @@ module.exports = {
       if(!argument) {
         argument = 6;
       }
-      var result = (Math.floor(Math.random() * Math.floor(argument)));
-      message.channel.send("I rolled " + (result + 1) + "!");
+      let result = (Math.floor(Math.random() * Math.floor(argument)));
+      message.channel.send(`I rolled ${result + 1}!`);
     }
   },
 
@@ -39,7 +39,7 @@ module.exports = {
         message.reply("Please ask me a question.");
       }
       else {
-        eightball = [
+        let eightball = [
         "It is certain.",
         "It is decidedly so.",
         "Without a doubt.",
@@ -61,7 +61,7 @@ module.exports = {
         "Outlook not so good.",
         "Very doubtful."
         ];
-        var index = (Math.floor(Math.random() * Math.floor(20)));
+        let index = (Math.floor(Math.random() * Math.floor(20)));
         message.reply(eightball[index]);
       }
     }
