@@ -15,10 +15,15 @@ try {
   var config = require("./config.json");
   console.log("Configuration file loaded with the following settings:\nToken: "
   + config.token + "\nPrefix: " + config.prefix + "\n----------");
+  var token = config.token;
 }
 catch(error) {
   console.log(error);
   console.log("There was an error loading the configurations file.");
+}
+
+if(!token) {
+  token = process.env.API_KEY;
 }
 
 // Log the bot in
@@ -86,4 +91,4 @@ client.on('message', message => {
   commandCheck(message);
 });
 
-client.login(config.token);
+client.login(token);
