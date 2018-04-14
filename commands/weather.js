@@ -16,7 +16,7 @@ module.exports = {
           if(weather.main == undefined){
                 message.reply("I am unable to fetch the weather");
           } else {
-              message.channel.send(`It's ${weather.main.temp} degrees in ${weather.name}!`;);
+              message.channel.send(`It's ${weather.main.temp} degrees in ${weather.name}!`);
           }
         });
       }
