@@ -14,19 +14,19 @@ A modular [Discord](https://discordapp.com/) bot that utilizes the [discord.js](
 - channelname: Changes the current text channel's name
 - topic: Changes the current text channel's topic
 - createtext: Creates a new text channel with the specified name
-- createvoice: Creates a new voice channel with the specified name 
+- createvoice: Creates a new voice channel with the specified name
 - owner: Gives the owner of the server
 - avatar: Gives the user's avatar URL; a user can be specified as an argument
 - say: Makes the bot repeat the phrase the user gives
 - coinflip: Flips a coin
 - diceroll; Rolls a dice with 6 sides; more sides can be specified as arguments
 - 8ball: Plays the game 8ball; requires a question
+- weather: Gives the weather of the specified region
 
 ### Coming Soon
 - help: Gives a list of available commands
 - kick: Kicks the specified user from the server
 - ban: Bans the specified user from the server
-- weather: Gives the weather of the specified region
 - 7day: Gives the weather forecast for the next 7 days of the specified region
 - fortnite: Gives the Fortnite statistics of the specified username
 - Server welcome messages
