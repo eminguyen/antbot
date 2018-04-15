@@ -16,7 +16,13 @@ module.exports = {
           if(weather.main == undefined){
                 message.reply("I am unable to fetch the weather");
           } else {
-              message.channel.send(`It's ${weather.main.temp} degrees in ${weather.name}!`);
+            let weatherText =
+            `Current Weather for ${weather.name}` + "\n" +
+            `:thermometer: temperature: ${weather.main.temp}` + "\n" +
+            `:cloud: clouds: ${weather.clouds.all}` + "\n" +
+            `:dash: wind: ${weather.wind.speed}`;
+
+              message.channel.send(weatherText);
           }
         });
       }
