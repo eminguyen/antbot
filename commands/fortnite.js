@@ -24,7 +24,14 @@ module.exports = {
         request(options, (error, response, body) => {
         if (!error && response.statusCode == 200) {
           var stats = JSON.parse(body);
-          message.channel.send(`${argument} k/d: ${stats.br.stats.pc.all.kpd}`);
+
+          let statsText =
+          `Stats for ${stats.displayName}` + "\n" +
+          `K/D: ${stats.br.stats.pc.all.kpd}` + "\n" +
+          `Wins: ${stats.br.stats.pc.all.wins}` + "\n" +
+          `Win Rate: ${stats.br.stats.pc.all.winRate}`;
+
+          message.channel.send(statsText);
         }
       });
       }
