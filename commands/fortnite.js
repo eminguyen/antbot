@@ -26,11 +26,42 @@ module.exports = {
           var stats = JSON.parse(body);
 
           let statsText =
-          `Stats for ${stats.displayName}` + "\n" +
-          `K/D: ${stats.br.stats.pc.all.kpd}` + "\n" +
-          `Wins: ${stats.br.stats.pc.all.wins}` + "\n" +
-          `Win Rate: ${stats.br.stats.pc.all.winRate}`;
-
+          {embed:
+            {
+              color: 3447003,
+              title: `Stats for ${stats.displayName}`,
+            fields: [
+              {
+                name: ':trophy: Victory Royales',
+                value: `${stats.br.stats.pc.all.wins}`
+              },
+              {
+                name: ':chart_with_upwards_trend: Win Rate',
+                value: `${stats.br.stats.pc.all.winRate}%`
+              },
+              {
+                name: ':gun: Kills',
+                value: `${stats.br.stats.pc.all.kills}`
+              },
+              {
+                name: ':skull: Deaths',
+                value: `${stats.br.stats.pc.all.deaths}`
+              },
+              {
+                name: ':black_heart: K/D',
+                value: `${stats.br.stats.pc.all.kpd}`
+              },
+              {
+                name: ':clock1: Time played',
+                value: `${stats.br.stats.pc.all.minutesPlayed} minutes`
+              },
+            ],
+              timestamp: new Date(),
+              footer: {
+                text: "Fortnite Battle Royale"
+              }
+            }
+          };
           message.channel.send(statsText);
         }
       });
