@@ -17,10 +17,38 @@ module.exports = {
                 message.reply("I am unable to fetch the weather");
           } else {
             let weatherText =
-            `Current Weather for ${weather.name}` + "\n" +
-            `:thermometer: temperature: ${weather.main.temp}` + "\n" +
-            `:cloud: clouds: ${weather.clouds.all}` + "\n" +
-            `:dash: wind: ${weather.wind.speed}`;
+            {embed:
+              {
+                color: 3447003,
+                title: `Weather for ${weather.name}`,
+              fields: [
+                {
+                  name: ':white_sun_rain_cloud:  Conditions',
+                  value: ` ${weather.weather.description}`
+                },
+                {
+                  name: ':thermometer: Temperature',
+                  value: `${weather.main.temp} °F `
+                },
+                {
+                  name: ':droplet: Humidity',
+                  value: `${weather.main.humidity} % `
+                },
+                {
+                  name: ':cloud: Clouds',
+                  value: `${weather.clouds.all}`
+                },
+                {
+                  name: ':dash: Wind Speed',
+                  value: ` ${weather.wind.speed}`
+                }
+              ],
+                timestamp: new Date(),
+                footer: {
+                  text: "Current Forecast"
+                }
+              }
+            };
 
               message.channel.send(weatherText);
           }
