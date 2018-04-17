@@ -14,7 +14,7 @@ module.exports = {
 
         var options = {
           method: "GET",
-          url: `https://omgvamp-hearthstone-v1.p.mashape.com/cards${argument}`,
+          url: `https://omgvamp-hearthstone-v1.p.mashape.com/cards/${argument}`,
           headers: {
             'X-Mashape-Key': config.hearthstone
           }
@@ -23,6 +23,7 @@ module.exports = {
         request(options, (error, response, body) => {
         if (!error) {
           var stats = JSON.parse(body);
+          console.log(stats);
 
           let statsText =
           {embed:
@@ -32,27 +33,27 @@ module.exports = {
             fields: [
               {
                 name: ':trophy: Victory Royales',
-                value: `${stats.br.stats.pc.all.wins}`
+                value: `test`
               },
               {
                 name: ':chart_with_upwards_trend: Win Rate',
-                value: `${stats.br.stats.pc.all.winRate}%`
+                value: `test`
               },
               {
                 name: ':gun: Kills',
-                value: `${stats.br.stats.pc.all.kills}`
+                value: `test`
               },
               {
                 name: ':skull: Deaths',
-                value: `${stats.br.stats.pc.all.deaths}`
+                value: `test`
               },
               {
                 name: ':black_heart: K/D',
-                value: `${stats.br.stats.pc.all.kpd}`
+                value: `test`
               },
               {
                 name: ':clock1: Time played',
-                value: `${stats.br.stats.pc.all.minutesPlayed} minutes`
+                value: `test`
               },
             ],
               timestamp: new Date(),
