@@ -1,11 +1,18 @@
 var express = require('express');
+var exphbs  = require('express-handlebars');
+
 var app = express();
 
-app.use(express.static('public'))
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
-app.get('/', function(req, res){
-  res.sendFile('public/index.html', { root : __dirname});
-});
+setInterval(function() {
+  app.get('/', function (req, res) {
+    handlebarsObject = {
+      numUsers: client.users.size
+    }
+    res.render('home', handlebarsObject);
+  })}, 1000);
 
 var port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", function() {
