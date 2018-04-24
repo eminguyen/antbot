@@ -13,12 +13,12 @@ module.exports = {
         var request = require('request');
 
         var options = {
-        method: "GET",
-        url: `https://fortnite.y3n.co/v2/player/${argument}`,
-        headers: {
-        'User-Agent': 'nodejs request',
-        'X-Key': config.fortnite
-         }
+          method: "GET",
+          url: `https://fortnite.y3n.co/v2/player/${argument}`,
+          headers: {
+            'User-Agent': 'nodejs request',
+            'X-Key':  process.env.FORTNITE || config.fortnite
+          }
         }
 
         request(options, (error, response, body) => {
