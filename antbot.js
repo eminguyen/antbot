@@ -54,7 +54,7 @@ client.on('ready', () => {
 const path = require('path');
 const fs = require('fs');
 
-var commandsList = [];
+var commandsList = {};
 const modulesPath = './commands/';
 const modulesList = fs.readdirSync(modulesPath);
 modulesList.forEach(modulePath => require(path.resolve(modulesPath, modulePath)));
@@ -68,7 +68,7 @@ for(var i = 0; i < modulesList.length; i++) {
 
 app.get('/', function (req, res) {
   console.log('ok');
-  console.log(commandsList);
+  console.log(commandsList)
   handlebarsObject = {
     users: client.users.size,
     servers: client.guilds.size,

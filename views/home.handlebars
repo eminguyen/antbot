@@ -11,6 +11,10 @@
 
 <ul class="command_list">
   {{#each commands}}
-  {{@key}}: {{this}}
-{{/each}}
+    <li>
+      {{usage}}
+      <br>
+      {{description}}
+    </li>
+  {{/each}}
 </ul>
