@@ -13,23 +13,22 @@ module.exports = {
         var request = require('request');
 
         var options = {
-        method: "GET",
-        url: `https://api.playbattlegrounds.com/shards/pc-krjp/players/${argument}`,
-        headers: {
-          "authorization": `Bearer ${config.pubg}`,
-          "accept": "application/vnd.api+json"
-        }
+          method: "GET",
+          url: `https://api.playbattlegrounds.com/shards/pc-na/players/Lolitsdavid`,
+          headers: {
+            Authorization: `Bearer ${config.pubg}`,
+            Accept: 'application/json'
+          }
         }
 
         request(options, (error, response, body) => {
-
+        if (!error) {
           var stats = JSON.parse(body);
-
+          console.log(stats);
           let statsText =
-          {embed:
-            {
+          {embed: {
               color: 3447003,
-              title: `Stats for ${stats.attributes.name}`,
+              title: `Stats for ${stats}`,
             fields: [
               {
                 name: ':trophy: Chicken Dinners',
@@ -59,7 +58,8 @@ module.exports = {
             }
           };
           message.channel.send(statsText);
-
+        }
+        else {console.log(response)};
       });
       }
       catch (error) {

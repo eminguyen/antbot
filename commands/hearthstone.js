@@ -21,50 +21,39 @@ module.exports = {
         }
 
         request(options, (error, response, body) => {
-        if (!error) {
-          var stats = JSON.parse(body);
-          console.log(stats);
+          var info = JSON.parse(body);
+          console.log(info);
 
-          let statsText =
+          let infoText =
           {embed:
             {
               color: 3447003,
-              title: `Stats for ${stats}`,
+              title: ` Card: ${info.name}`,
             fields: [
               {
-                name: ':trophy: Victory Royales',
-                value: `test`
+                name: 'Rarity',
+                value: info.rarity
               },
               {
-                name: ':chart_with_upwards_trend: Win Rate',
-                value: `test`
+                name: 'Health',
+                value: info.health
               },
               {
-                name: ':gun: Kills',
-                value: `test`
+                name: 'Description',
+                value: info.flavor
               },
               {
-                name: ':skull: Deaths',
-                value: `test`
-              },
-              {
-                name: ':black_heart: K/D',
-                value: `test`
-              },
-              {
-                name: ':clock1: Time played',
-                value: `test`
-              },
+                name: 'Artist',
+                value: info.artist
+              }
             ],
               timestamp: new Date(),
               footer: {
-                text: "Fortnite Battle Royale"
+                text: "Hearthstone"
               }
             }
           };
-          message.channel.send(statsText);
-        }
-            else {console.log(response)};
+          message.channel.send(infoText);
       });
       }
       catch (error) {

@@ -6,14 +6,6 @@ var app = express();
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-setInterval(function() {
-  app.get('/', function (req, res) {
-    handlebarsObject = {
-      numUsers: client.users.size
-    }
-    res.render('home', handlebarsObject);
-  })}, 1000);
-
 var port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", function() {
   console.log("Listening on Port 3000");
@@ -73,6 +65,18 @@ for(var i = 0; i < modulesList.length; i++) {
     commandsList[commandName] = module[commandName];
   }
 }
+
+app.get('/', function (req, res) {
+  console.log('ok');
+  console.log(commandsList);
+  handlebarsObject = {
+    users: client.users.size,
+    servers: client.guilds.size,
+    uptime: client.uptime / 60,
+    commands: commandsList
+  }
+  res.render('home', handlebarsObject);
+})
 
 // Function to check for commands and isolate name and arguments
 var commandCheck = (message) => {
