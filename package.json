@@ -29,9 +29,13 @@
     "discord.js": "^11.3.2",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+<<<<<<< HEAD
     "http": "0.0.0"
   },
   "devDependencies": {
+=======
+    "http": "0.0.0",
+>>>>>>> 7609dadbe239edfe1fb6c0bd0d82d0728f1d5a90
     "request": "^2.85.0"
   }
 }

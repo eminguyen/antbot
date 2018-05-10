@@ -17,7 +17,11 @@ module.exports = {
           url: `https://fortnite.y3n.co/v2/player/${argument}`,
           headers: {
             'User-Agent': 'nodejs request',
+<<<<<<< HEAD
             'X-Key': config.fortnite
+=======
+            'X-Key':  process.env.FORTNITE || config.fortnite
+>>>>>>> 7609dadbe239edfe1fb6c0bd0d82d0728f1d5a90
           }
         }
 
