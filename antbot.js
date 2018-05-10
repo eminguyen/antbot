@@ -70,6 +70,7 @@ app.get('/', function (req, res) {
   console.log('ok');
   console.log(commandsList)
   handlebarsObject = {
+    invite: `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot`,
     users: client.users.size,
     servers: client.guilds.size,
     uptime: client.uptime / 60,
