@@ -6,7 +6,8 @@ module.exports = {
     "userid",
     "channelid",
     "avatar",
-    "say"
+    "say",
+    "invite"
   ],
 
   "ping": {
@@ -79,6 +80,14 @@ module.exports = {
       else {
         message.channel.send(argument);
       }
+    }
+  },
+
+  "invite": {
+    usage: "invite",
+    description: "Creates an invite link for the bot",
+    method: (client, message, argument) => {
+      message.channel.send(`https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot`)
     }
   }
 
