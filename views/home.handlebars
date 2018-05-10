@@ -1,3 +1,16 @@
+<h1>
+  Antbot
+</h1>
+
 <p>
-  Number of users: {{numUsers}}
+  Number of users: {{users}}
+  Number of servers: {{servers}}
+  Uptime: {{uptime}}
+  Commands:
 </p>
+
+<ul class="command_list">
+  {{#each commands}}
+  {{@key}}: {{this}}
+{{/each}}
+</ul>
