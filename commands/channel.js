@@ -4,11 +4,11 @@ module.exports = {
     "channelname",
     "createvoice",
     "createtext",
-    "topic",
+    "topic"
   ],
 
   "channelid": {
-    usage: "!channelid",
+    usage: "channelid",
     description: "Gives the id of the current channel",
     method: (client, message, argument) => {
       message.channel.send(`The current channel's id is ${message.channel.id}`);
@@ -16,7 +16,7 @@ module.exports = {
   },
 
   "channelname": {
-    usage: "!channelname <name of channel>",
+    usage: "channelname <name of channel>",
     description: "Set the channel's name",
     method: (client, message, argument) => {
       try {
@@ -30,7 +30,7 @@ module.exports = {
   },
 
   "createvoice": {
-    usage: "!createvoice <name of channel>",
+    usage: "createvoice <name of channel>",
     description: "Creates a voice channel with the desired name",
     method: (client, message, argument) => {
       try {
@@ -44,7 +44,7 @@ module.exports = {
   },
 
   "createtext": {
-    usage: "!createtext <name of channel>",
+    usage: "createtext <name of channel>",
     description: "Creates a text channel with the desired name",
     method: (client, message, argument) => {
       try {
@@ -59,7 +59,7 @@ module.exports = {
 
 
   "topic": {
-    usage: "!topic <topic>",
+    usage: "topic <topic>",
     description: "Set the channel's topic",
     method: (client, message, argument) => {
       try {

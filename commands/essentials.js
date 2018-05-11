@@ -4,14 +4,13 @@ module.exports = {
     "hello",
     "botid",
     "userid",
-    "channelid",
     "avatar",
     "say",
     "invite"
   ],
 
   "ping": {
-    usage: "!ping",
+    usage: "ping",
     description: "Returns pong!",
     method: (client, message, argument) => {
       message.channel.send("pong!");
@@ -19,7 +18,7 @@ module.exports = {
   },
 
   "hello": {
-    usage: "!hello",
+    usage: "hello",
     description: "Tells the user hello",
     method: (client, message, argument) => {
       message.channel.send(`Hello ${message.author}!`);
@@ -27,7 +26,7 @@ module.exports = {
   },
 
   "botid": {
-    usage: "!botid",
+    usage: "botid",
     description: "Gives the id of the bot",
     method: (client, message, argument) => {
       message.channel.send(`My id is ${client.user.id}.`);
@@ -35,7 +34,7 @@ module.exports = {
   },
 
   "userid": {
-    usage: "!userid <User Name> (optional)",
+    usage: "userid <User Name> (optional)",
     description: "Tells the user their id",
     method: (client, message, argument) => {
       try {

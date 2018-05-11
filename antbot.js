@@ -60,15 +60,13 @@ const modulesList = fs.readdirSync(modulesPath);
 modulesList.forEach(modulePath => require(path.resolve(modulesPath, modulePath)));
 for(var i = 0; i < modulesList.length; i++) {
   var module = require(modulesPath + modulesList[i]);
-  for(var j = 0; j <= module.commands.length; j++) {
+  for(var j = 0; j < module.commands.length; j++) {
     var commandName = module.commands[j];
     commandsList[commandName] = module[commandName];
   }
 }
 
 app.get('/', function (req, res) {
-  console.log('ok');
-  console.log(commandsList)
   handlebarsObject = {
     invite: `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot`,
     users: client.users.size,
@@ -99,6 +97,7 @@ var commandCheck = (message) => {
         command.length+config.prefix.length + 1);
       }
       catch(error) {
+        console.log(error);
         message.channel.send("What do you want?");
       }
     }

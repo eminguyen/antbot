@@ -4,7 +4,7 @@ module.exports = {
   ],
 
   "weather": {
-    usage: "!weather",
+    usage: "weather <location name>",
     description: "Returns the weather for a location",
     method: (client, message, argument) => {
       try {

@@ -6,7 +6,7 @@ module.exports = {
   ],
 
   "coinflip": {
-    usage: "!coinflip",
+    usage: "coinflip",
     description: "Returns heads or tails!",
     method: (client, message, argument) => {
       let random = (Math.floor(Math.random() * Math.floor(2)));
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   "diceroll": {
-    usage: "!diceroll <number of sides> (optional)",
+    usage: "diceroll <number of sides> (optional)",
     description: "Rolls a dice with a given number of sides",
     method: (client, message, argument) => {
       if(!argument) {
@@ -32,7 +32,7 @@ module.exports = {
   },
 
   "8ball" : {
-    usage: "!8ball <question>",
+    usage: "8ball <question>",
     description: "Gives the user a response to their question",
     method: (client, message, argument) => {
       if(!argument) {

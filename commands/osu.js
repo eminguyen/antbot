@@ -4,7 +4,7 @@ module.exports = {
   ],
 
   "osu": {
-    usage: "!osu",
+    usage: "osu <player name>",
     description: "Returns OSU statitics for a player",
     method: (client, message, argument) => {
       try {

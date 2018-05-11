@@ -4,7 +4,7 @@ module.exports = {
   ],
 
   "hearthstone": {
-    usage: "!hearthstone",
+    usage: "hearthstone <player name>",
     description: "Returns Hearthstone statitics for a player",
     method: (client, message, argument) => {
       try {

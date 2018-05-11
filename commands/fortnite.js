@@ -4,7 +4,7 @@ module.exports = {
   ],
 
   "fortnite": {
-    usage: "!fortnite",
+    usage: "fortnite <player>",
     description: "Returns Fortnite statitics for a player",
     method: (client, message, argument) => {
       try {

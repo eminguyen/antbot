@@ -4,7 +4,7 @@ module.exports = {
   ],
 
   "pubg": {
-    usage: "!pubg",
+    usage: "pubg <player name>",
     description: "Returns PUBG statitics for a player",
     method: (client, message, argument) => {
       try {
