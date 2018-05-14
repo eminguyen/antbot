@@ -75,6 +75,7 @@ app.get('/', function (req, res) {
     servers: client.guilds.size,
     uptime: (Math.floor(client.uptime / 86400000)) + " days " + (Math.floor(client.uptime / 3600000)) % 24
             +" hr " + (Math.floor(client.uptime / 60000) % 60) + " min",
+    prefix: config.prefix
   }
   res.render('home', handlebarsObject);
 })
