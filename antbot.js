@@ -66,15 +66,31 @@ for(var i = 0; i < modulesList.length; i++) {
   }
 }
 
+app.use(express.static("public"));
+
 app.get('/', function (req, res) {
   handlebarsObject = {
     invite: `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot`,
     users: client.users.size,
     servers: client.guilds.size,
-    uptime: client.uptime / 60,
-    commands: commandsList
+    uptime: (Math.floor(client.uptime / 86400000)) + " days " + (Math.floor(client.uptime / 3600000)) % 24
+            +" hr " + (Math.floor(client.uptime / 60000) % 60) + " min",
   }
   res.render('home', handlebarsObject);
+})
+
+app.get('/about', function (req, res) {
+  handlebarsObject = {
+    commands: commandsList
+  }
+  res.render('about', handlebarsObject);
+})
+
+app.get('/commands', function (req, res) {
+  handlebarsObject = {
+    commands: commandsList
+  }
+  res.render('commands', handlebarsObject);
 })
 
 // Function to check for commands and isolate name and arguments

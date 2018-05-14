@@ -1,34 +1,54 @@
 <div class="ui center aligned text container">
-  <h1>
+  <h1 class="ui huge header">
     Antbot
   </h1>
-  <p>
-    <a href={{invite}}>
-      <button class="ui button">
-       Invite me
-      </button>
-    </a>
-    <a href="https://discord.gg/NZwA9cG">
-      <button class="ui button">
-        Join my server
-      </button>
-    </a>
+  <p class="ui header">
+    A modular chat bot with games, weather, statistics, and mod commands.
+    Constantly being updated!
   </p>
-  <p>
-    Number of users: {{users}}
-    Number of servers: {{servers}}
-    Uptime: {{uptime}}
-  </p>
+  <a href={{invite}}>
+    <div class="ui massive animated button" tabindex="0">
+      <div class="visible content">Invite me!</div>
+      <div class="hidden content">
+        <i class="right arrow icon"></i>
+      </div>
+    </div>
+  </a>
 </div>
-<div class="ui text container">
-  <div class="ui celled list">
-    {{#each commands}}
-        <div class="item">
-          <div class="content">
-            <div class="header">{{usage}}</div>
-            {{description}}
-          </div>
-        </div>
-    {{/each}}
+
+<div class="ui raised center aligned container segment">
+  <div class="ui grid" id="stats">
+    <div class="ui statistic four wide column">
+      <div class="value">
+        {{users}}
+      </div>
+      <div class="label">
+        Users
+      </div>
+    </div>
+    <div class="ui statistic four wide column">
+      <div class="value">
+        {{servers}}
+      </div>
+      <div class="label">
+        Servers
+      </div>
+    </div>
+    <div class="ui statistic four wide column">
+      <div class="value">
+        1
+      </div>
+      <div class="label">
+        AntBot
+      </div>
+    </div>
+  </div>
+  <div class="ui statistic">
+    <div class="label">
+      Uptime
+    </div>
+    <div class="value">
+      {{uptime}}
+    </div>
   </div>
 </div>
