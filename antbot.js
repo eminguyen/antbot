@@ -110,8 +110,8 @@ var commandCheck = (message) => {
     else if(message.isMentioned(client.user)) {
       try {
         var command = message.content.split(" ")[1];
-        var argument = message.content.substring(client.user.mention().length +
-        command.length+config.prefix.length + 1);
+        var argument = message.content.substring(message.content.split(" ")[0].length +
+        command.length + 2);
       }
       catch(error) {
         console.log(error);
