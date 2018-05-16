@@ -47,7 +47,7 @@ if(!token) {
 var client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logging in as ${client.user.tag}!`);
-  client.user.setActivity('with my code');
+  client.user.setActivity('at http://antbot.net');
 });
 
 // Load commands list

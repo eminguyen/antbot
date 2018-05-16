@@ -6,7 +6,8 @@ module.exports = {
     "userid",
     "avatar",
     "say",
-    "invite"
+    "invite",
+    "activity",
   ],
 
   "ping": {
@@ -87,6 +88,20 @@ module.exports = {
     description: "Creates an invite link for the bot",
     method: (client, message, argument) => {
       message.channel.send(`https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot`)
+    }
+  },
+
+  "activity": {
+    usage: "activity <activity description>",
+    description: "Allows you to change the bot's activity",
+    method: (client, message, argument) => {
+      if(message.author.id == '117543813563547648') {
+        client.user.setActivity(argument);
+        message.channel.send(`I am now playing ${argument}`)
+      }
+      else {
+        message.channel.send("You do not have permission to do that.")
+      }
     }
   }
 
