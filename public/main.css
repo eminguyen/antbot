@@ -5,3 +5,7 @@
 #stats{
   justify-content:center
 }
+
+.hide{
+  visibility: hidden;
+}
