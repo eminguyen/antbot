@@ -1,6 +1,5 @@
 module.exports = {
   commands: [
-    "pubg"
   ],
 
   "pubg": {

@@ -20,7 +20,7 @@ module.exports = {
   },
 
   "diceroll": {
-    usage: "diceroll <number of sides> (optional)",
+    usage: "diceroll <number of sides>*",
     description: "Rolls a dice with a given number of sides",
     method: (client, message, argument) => {
       if(!argument) {

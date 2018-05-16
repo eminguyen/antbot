@@ -4,8 +4,8 @@ module.exports = {
   ],
 
   "fortnite": {
-    usage: "fortnite <player>",
-    description: "Returns Fortnite statitics for a player",
+    usage: "fortnite <player name>",
+    description: "Returns Fortnite statistics for a player",
     method: (client, message, argument) => {
       try {
         let config = require("../config.json");

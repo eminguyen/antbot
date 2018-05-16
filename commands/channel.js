@@ -59,7 +59,7 @@ module.exports = {
 
 
   "topic": {
-    usage: "topic <topic>",
+    usage: "topic <channel topic>",
     description: "Set the channel's topic",
     method: (client, message, argument) => {
       try {

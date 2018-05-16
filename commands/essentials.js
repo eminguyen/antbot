@@ -34,7 +34,7 @@ module.exports = {
   },
 
   "userid": {
-    usage: "userid <User Name> (optional)",
+    usage: "userid <user name>*",
     description: "Tells the user their id",
     method: (client, message, argument) => {
       try {
@@ -52,7 +52,7 @@ module.exports = {
   },
 
   "avatar": {
-    usage: "avatar",
+    usage: "avatar <user name>*",
     description: "Sends a link to the user's avatar",
     method: (client, message, argument) => {
       try {
