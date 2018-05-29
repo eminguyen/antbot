@@ -21,9 +21,11 @@ module.exports = {
           }
         };
 
+        var stats;
+
         request(options, (error, response, body) => {
           if (!error && response.statusCode == 200) {
-            var stats = JSON.parse(body);
+            stats = JSON.parse(body);
           };
         });
 
