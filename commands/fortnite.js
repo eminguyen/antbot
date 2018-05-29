@@ -19,17 +19,19 @@ module.exports = {
             'User-Agent': 'nodejs request',
             'X-Key':  process.env.FORTNITE || config.fortnite
           }
-        }
+        };
 
         request(options, (error, response, body) => {
-        if (!error && response.statusCode == 200) {
-          var stats = JSON.parse(body);
+          if (!error && response.statusCode == 200) {
+            var stats = JSON.parse(body);
+          };
+        });
 
-          let statsText =
-          {embed:
-            {
-              color: 3447003,
-              title: `Stats for ${stats.displayName}`,
+        let statsText =
+        {embed:
+          {
+            color: 3447003,
+            title: `Stats for ${stats.displayName}`,
             fields: [
               {
                 name: ':trophy: Victory Royales',
@@ -56,15 +58,12 @@ module.exports = {
                 value: `${stats.br.stats.pc.all.minutesPlayed} minutes`
               },
             ],
-              timestamp: new Date(),
-              footer: {
-                text: "Fortnite Battle Royale"
-              }
+            timestamp: new Date(),
+            footer: {
+              text: "Fortnite Battle Royale"
             }
-          };
-          message.channel.send(statsText);
-        }
-      });
+          }
+        };
       }
       catch (error) {
         console.log(error);
