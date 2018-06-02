@@ -1,5 +1,6 @@
 module.exports = {
   commands: [
+    "hearthstone"
   ],
 
   "hearthstone": {
@@ -15,19 +16,22 @@ module.exports = {
           method: "GET",
           url: `https://omgvamp-hearthstone-v1.p.mashape.com/cards/${argument}`,
           headers: {
-            'X-Mashape-Key': config.hearthstone
+            'X-Mashape-Key': config.mashape
           }
         }
 
         request(options, (error, response, body) => {
-          var info = JSON.parse(body);
+          var info = JSON.parse(body)[0];
           console.log(info);
 
           let infoText =
           {embed:
             {
               color: 3447003,
-              title: ` Card: ${info.name}`,
+              title: `Card: ${info.name}`,
+              image: {
+                url: info.img,
+              },
             fields: [
               {
                 name: 'Rarity',
