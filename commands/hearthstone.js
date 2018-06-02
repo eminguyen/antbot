@@ -43,7 +43,7 @@ module.exports = {
                   value: info.health
                 },
                 {
-                  name: '"book: Description',
+                  name: ':book: Description',
                   value: info.flavor
                 },
                 {

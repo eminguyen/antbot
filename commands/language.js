@@ -4,7 +4,7 @@ module.exports = {
   ],
 
   "yoda": {
-    usage: "yoda",
+    usage: "yoda <message>",
     description: "Translates your message to yoda speak",
     method: (client, message, argument) => {
       try {
