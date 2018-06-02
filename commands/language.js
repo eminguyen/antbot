@@ -1,6 +1,6 @@
 module.exports = {
   commands: [
-    "yoda"
+    "yoda",
   ],
 
   "yoda": {
@@ -15,7 +15,7 @@ module.exports = {
 
         var options = {
           headers: {
-            'X-Mashape-Key': config.mashape
+            'X-Mashape-Key': process.env.MASHAPE || config.mashape
           },
           method: "POST",
           url: `https://yodish.p.mashape.com/yoda?text=${argument}`,
@@ -38,4 +38,5 @@ module.exports = {
       }
     }
   }
+
 }

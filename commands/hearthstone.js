@@ -16,7 +16,7 @@ module.exports = {
           method: "GET",
           url: `https://omgvamp-hearthstone-v1.p.mashape.com/cards/${argument}`,
           headers: {
-            'X-Mashape-Key': config.mashape
+            'X-Mashape-Key': process.env.MASHAPE || config.mashape
           }
         }
 
