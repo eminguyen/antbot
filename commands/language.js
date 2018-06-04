@@ -1,14 +1,48 @@
 module.exports = {
   commands: [
+    "quote",
     "yoda",
   ],
+
+  "quote": {
+    usage: "quote",
+    description: "Returns a random famous quote",
+    method: (client, message, argument) => {
+      try {
+        var config = require("../config.json");
+
+        var request = require('request');
+
+        var options = {
+          headers: {
+            'X-Mashape-Key': process.env.MASHAPE || config.mashape
+          },
+          method: "GET",
+          url: `https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous`,
+        }
+
+        request(options, (error, response, body) => {
+          if (!error && response.statusCode == 200) {
+            let famousQuote = JSON.parse(body)[0];
+            message.channel.send(`"${famousQuote.quote}" - ${famousQuote.author}`);
+          }
+          else {
+            message.reply("I'm all out of quotes!");
+          }
+        });
+
+      }
+      catch(error) {
+        message.reply("I'm all out of quotes!");
+      }
+    }
+  },
 
   "yoda": {
     usage: "yoda <message>",
     description: "Translates your message to yoda speak",
     method: (client, message, argument) => {
       try {
-
         var config = require("../config.json");
 
         var request = require('request');
@@ -19,7 +53,6 @@ module.exports = {
           },
           method: "POST",
           url: `https://yodish.p.mashape.com/yoda?text=${argument}`,
-          datatype: 'json',
         }
 
         request(options, (error, response, body) => {
@@ -37,6 +70,6 @@ module.exports = {
         console.log(error);
       }
     }
-  }
+  },
 
 }
