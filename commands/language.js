@@ -1,3 +1,8 @@
+/* Module: language.js
+ * Author: Emily Nguyen
+ * Description: Plays around with other languages
+ */
+
 module.exports = {
 
   /* A list of the available commands in this module*/

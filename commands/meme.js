@@ -2,6 +2,7 @@
  * Author: Emily Nguyen
  * Description: Returns memes to the user
  */
+ 
 module.exports = {
 
   /* A list of the available commands in this module*/

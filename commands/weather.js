@@ -2,6 +2,7 @@
  * Author: Emily Nguyen
  * Description: Returns weather information
  */
+ 
 module.exports = {
 
   /* A list of the available commands in this module*/
