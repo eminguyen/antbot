@@ -1,10 +1,20 @@
+/* Module: games.js
+ * Author: Emily Nguyen
+ * Description: Contains various games to play with the user
+ */
+
 module.exports = {
+
+  /* A list of the available commands in this module*/
   commands: [
     "coinflip",
     "diceroll",
     "8ball",
   ],
 
+  /* Command: CoinFlip
+   * Flips a coin returning either head or tails
+   */
   "coinflip": {
     usage: "coinflip",
     description: "Returns heads or tails!",
@@ -19,6 +29,9 @@ module.exports = {
     }
   },
 
+  /* Command: DiceRoll
+   * Rolls a dice with any number of sides; default is 6 sides
+   */
   "diceroll": {
     usage: "diceroll <number of sides>*",
     description: "Rolls a dice with a given number of sides",
@@ -31,6 +44,9 @@ module.exports = {
     }
   },
 
+  /* Command: 8Ball
+   * Gives the user a random response based on the 8Ball toy
+   */
   "8ball" : {
     usage: "8ball <question>",
     description: "Gives the user a response to their question",

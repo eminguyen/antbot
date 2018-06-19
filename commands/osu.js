@@ -1,7 +1,17 @@
+/* Module: osu.js
+ * Author: Emily Nguyen
+ * Description: Returns OSU player and song statistics
+ */
 module.exports = {
+
+  /* A list of the available commands in this module*/
   commands: [
   ],
 
+  /* WORK IN PROGRESS */
+  /* Command: Osu
+   * Returns a player's Osu! statistics
+   */
   "osu": {
     usage: "osu <player name>",
     description: "Returns OSU statitics for a player",
@@ -13,49 +23,56 @@ module.exports = {
 
         var options = {
           method: "GET",
-          url: `http://osu.ppy.sh/api/get_beatmaps/?k=${config.osu}`,
+          url: `http://osu.ppy.sh/api/get_user/?k=${config.osu}u=${argument}`,
         }
 
         request(options, (error, response, body) => {
-        if (!error) {
-          var stats = JSON.parse(body);
-          console.log(stats);
-          let statsText =
-          {embed: {
-              color: 3447003,
-              title: `Stats for ${stats}`,
-            fields: [
-              {
-                name: ':trophy: Chicken Dinners',
-                value: `test`
-              },
-              {
-                name: ':chart_with_upwards_trend: Win Rate',
-                value: `test%`
-              },
-              {
-                name: ':gun: Kills',
-                value: `test}`
-              },
-              {
-                name: ':skull: Suicides',
-                value: `test`
-              },
-              {
-                name: ':black_heart: K/D',
-                value: `test`
-              },
-            ],
-              timestamp: new Date(),
-              footer: {
-                text: "OSU!"
-              }
+          if (!error) {
+            try {
+              var stats = body[0];
+              console.log(body);
+              console.log(response);
+              console.log(stats);
+              let statsText =
+              {embed: {
+                  color: 3447003,
+                  title: `Stats for ${argument}`,
+                fields: [
+                  {
+                    name: ':trophy: Chicken Dinners',
+                    value: `test`
+                  },
+                  {
+                    name: ':chart_with_upwards_trend: Win Rate',
+                    value: `test%`
+                  },
+                  {
+                    name: ':gun: Kills',
+                    value: `test}`
+                  },
+                  {
+                    name: ':skull: Suicides',
+                    value: `test`
+                  },
+                  {
+                    name: ':black_heart: K/D',
+                    value: `test`
+                  },
+                ],
+                  timestamp: new Date(),
+                  footer: {
+                    text: "OSU!"
+                  }
+                }
+              };
+              message.channel.send(statsText);
             }
-          };
-          message.channel.send(statsText);
-        }
-        else {console.log(response)};
-      });
+            catch(error) {
+              message.reply("Could not retrieve osu statistics")
+            }
+          }
+          else {console.log("oh");console.log(response)};
+        });
       }
       catch (error) {
         console.log(error);

@@ -1,3 +1,9 @@
+/* Module: essentials.js
+ * Author: Emily Nguyen
+ * Description: Contains basic commands for a discord bot
+ */
+
+/* A list of the available commands in this module*/
 module.exports = {
   commands: [
     "ping",
@@ -10,6 +16,9 @@ module.exports = {
     "activity",
   ],
 
+  /* Command: Ping
+   * The bot messages pong to indicate that it is alive
+   */
   "ping": {
     usage: "ping",
     description: "Returns pong!",
@@ -18,6 +27,9 @@ module.exports = {
     }
   },
 
+  /* Command: Hello
+   * Replies Hello! to the user
+   */
   "hello": {
     usage: "hello",
     description: "Tells the user hello",
@@ -26,6 +38,9 @@ module.exports = {
     }
   },
 
+  /* Command: BotID
+   * Returns the ID of the bot
+   */
   "botid": {
     usage: "botid",
     description: "Gives the id of the bot",
@@ -34,6 +49,9 @@ module.exports = {
     }
   },
 
+  /* Command: UserID
+   * Replies ID of a specified user
+   */
   "userid": {
     usage: "userid <user name>*",
     description: "Tells the user their id",
@@ -52,6 +70,9 @@ module.exports = {
     }
   },
 
+  /* Command: Avatar
+   * Returns a link to a user's avatar
+   */
   "avatar": {
     usage: "avatar <user name>*",
     description: "Sends a link to the user's avatar",
@@ -70,6 +91,9 @@ module.exports = {
     }
   },
 
+  /* Command: Say
+   * Makes the bot repeat a message
+   */
   "say": {
     usage: "say <message>",
     description: "Makes AntBot repeat the message",
@@ -83,6 +107,9 @@ module.exports = {
     }
   },
 
+  /* Command: Invite
+   * Returns an invite link for the bot
+   */
   "invite": {
     usage: "invite",
     description: "Creates an invite link for the bot",
@@ -91,6 +118,9 @@ module.exports = {
     }
   },
 
+  /* Command: activity
+   * Allows the user to change the bot's current activity
+   */
   "activity": {
     usage: "activity <activity description>",
     description: "Allows you to change the bot's activity",

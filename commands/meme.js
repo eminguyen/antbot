@@ -1,15 +1,26 @@
+/* Module: meme.js
+ * Author: Emily Nguyen
+ * Description: Returns memes to the user
+ */
 module.exports = {
+
+  /* A list of the available commands in this module*/
   commands: [
     "meme",
   ],
 
+  /* WORK IN PROGRESS */
+  /* Command: Meme
+   * Returns a random meme
+   */
   "meme": {
-    usage: "owner",
+    usage: "meme",
     description: "Returns a random meme",
     method: (client, message, argument) => {
+
     try {
       var request = require('request');
-      
+
       var options = {
         method: "GET",
         url: "https://api.imgflip.com/get_memes",
@@ -27,6 +38,6 @@ module.exports = {
         console.log(error);
       }
     }
-  }
+  },
 
 }

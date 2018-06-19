@@ -1,7 +1,17 @@
+/* Module: pubg.js
+ * Author: Emily Nguyen
+ * Description: Returns PUBG player statistics
+ */
 module.exports = {
+
+  /* A list of the available commands in this module*/
   commands: [
   ],
 
+  /* WORK IN PROGRESS */
+  /* Command: PUBG
+   * Returns a player's PUBG Statistics
+   */
   "pubg": {
     usage: "pubg <player name>",
     description: "Returns PUBG statitics for a player",
@@ -13,7 +23,7 @@ module.exports = {
 
         var options = {
           method: "GET",
-          url: `https://api.playbattlegrounds.com/shards/pc-na/players/Lolitsdavid`,
+          url: `https://api.playbattlegrounds.com/shards/pc-na/players/${argument}`,
           headers: {
             Authorization: `Bearer ${config.pubg}`,
             Accept: 'application/json'

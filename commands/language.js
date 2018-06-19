@@ -1,9 +1,14 @@
 module.exports = {
+
+  /* A list of the available commands in this module*/
   commands: [
     "quote",
     "yoda",
   ],
 
+  /* Command: Quote
+   * Returns a random famous quote
+   */
   "quote": {
     usage: "quote",
     description: "Returns a random famous quote",
@@ -38,6 +43,9 @@ module.exports = {
     }
   },
 
+  /* Command: Yoda
+   * Translates a message into yoda's language
+   */
   "yoda": {
     usage: "yoda <message>",
     description: "Translates your message to yoda speak",
