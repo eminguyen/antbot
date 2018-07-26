@@ -2,7 +2,7 @@
  * Author: Emily Nguyen
  * Description: Returns weather information
  */
- 
+
 module.exports = {
 
   /* A list of the available commands in this module*/
@@ -22,15 +22,14 @@ module.exports = {
 
         let request = require('request');
         let config = require("../config.json");
-        let url = `http://api.openweathermap.org/data/2.5/weather?q=${argument}&units=imperial&appid=${config.weather}`
+        let url = `http://api.openweathermap.org/data/2.5/weather?q=${argument}&units=imperial&appid=${config.weather}`;
 
         // Performs a request to OpenWeatherMap to retrieve weather info
         request(url, function (err, response, body) {
 
-          let weather = JSON.parse(body)
+          let weather = JSON.parse(body);
 
-          if(weather.main == undefined)
-          {
+          if(weather.main == undefined) {
             message.reply("I am unable to fetch the weather");
           }
           else {

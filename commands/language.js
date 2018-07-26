@@ -19,11 +19,11 @@ module.exports = {
     description: "Returns a random famous quote",
     method: (client, message, argument) => {
       try {
-        var config = require("../config.json");
+        let config = require("../config.json");
 
-        var request = require('request');
+        let request = require('request');
 
-        var options = {
+        let options = {
           headers: {
             'X-Mashape-Key': process.env.MASHAPE || config.mashape
           },
@@ -55,33 +55,28 @@ module.exports = {
     usage: "yoda <message>",
     description: "Translates your message to yoda speak",
     method: (client, message, argument) => {
-      try {
-        var config = require("../config.json");
 
-        var request = require('request');
+      let config = require("../config.json");
 
-        var options = {
-          headers: {
-            'X-Mashape-Key': process.env.MASHAPE || config.mashape
-          },
-          method: "POST",
-          url: `https://yodish.p.mashape.com/yoda?text=${argument}`,
+      let request = require('request');
+
+      let options = {
+        headers: {
+          'X-Mashape-Key': process.env.MASHAPE || config.mashape
+        },
+        method: "POST",
+        url: `https://yodish.p.mashape.com/yoda?text=${argument}`
+      }
+
+      request(options, (error, response, body) => {
+        if (!error && response.statusCode === 200) {
+          let yoda = JSON.parse(body);
+          message.channel.send(yoda.contents.translated);
         }
-
-        request(options, (error, response, body) => {
-          if (!error && response.statusCode == 200) {
-            let yoda = JSON.parse(body);
-            message.channel.send(yoda.contents.translated);
-          }
-          else {
-            console.log(response);
-          }
-        })
-      }
-
-      catch(error) {
-        console.log(error);
-      }
+        else {
+          console.log(response);
+        }
+      });
     }
   },
 

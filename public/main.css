@@ -1,11 +1,7 @@
-.intro{
+.intro {
   margin-top: 5vh;
 }
 
-#stats{
+#stats {
   justify-content:center
-}
-
-.hide{
-  visibility: hidden;
 }

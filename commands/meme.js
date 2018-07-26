@@ -2,7 +2,7 @@
  * Author: Emily Nguyen
  * Description: Returns memes to the user
  */
- 
+
 module.exports = {
 
   /* A list of the available commands in this module*/
@@ -20,9 +20,9 @@ module.exports = {
     method: (client, message, argument) => {
 
     try {
-      var request = require('request');
+      let request = require('request');
 
-      var options = {
+      let options = {
         method: "GET",
         url: "https://api.imgflip.com/get_memes",
       };

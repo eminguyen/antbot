@@ -2,7 +2,7 @@
  * Author: Emily Nguyen
  * Description: Returns OSU player and song statistics
  */
- 
+
 module.exports = {
 
   /* A list of the available commands in this module*/
@@ -20,9 +20,9 @@ module.exports = {
       try {
         let config = require("../config.json");
 
-        var request = require('request');
+        let request = require('request');
 
-        var options = {
+        let options = {
           method: "GET",
           url: `http://osu.ppy.sh/api/get_user/?k=${config.osu}u=${argument}`,
         }
@@ -30,7 +30,7 @@ module.exports = {
         request(options, (error, response, body) => {
           if (!error) {
             try {
-              var stats = body[0];
+              let stats = body[0];
               console.log(body);
               console.log(response);
               console.log(stats);

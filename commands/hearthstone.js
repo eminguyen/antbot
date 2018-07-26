@@ -21,9 +21,9 @@ module.exports = {
       try {
         let config = require("../config.json");
 
-        var request = require('request');
+        let request = require('request');
 
-        var options = {
+        let options = {
           method: "GET",
           url: `https://omgvamp-hearthstone-v1.p.mashape.com/cards/${argument}`,
           headers: {
@@ -34,66 +34,57 @@ module.exports = {
         // Performs a request to a Hearthstone Mashape API in order to retrieve
         // card info
         request(options, (error, response, body) => {
+          let info = JSON.parse(body)[0];
 
-          try {
-            var info = JSON.parse(body)[0];
+          // Formats the card information into an embed to return to user
+          let infoText =
+          {embed:
+            {
+              color: 3447003,
+              title: `Card: ${info.name}`,
+              image: {
+                url: info.img,
+              },
+            fields: [
 
-            // Formats the card information into an embed to return to user
-            let infoText =
-            {embed:
+              // The card's rarity
               {
-                color: 3447003,
-                title: `Card: ${info.name}`,
-                image: {
-                  url: info.img,
-                },
-              fields: [
+                name: ':ring: Rarity',
+                value: info.rarity
+              },
 
-                // The card's rarity
-                {
-                  name: ':ring: Rarity',
-                  value: info.rarity
-                },
+              // The card's health
+              {
+                name: ':heart: Health',
+                value: info.health
+              },
 
-                // The card's health
-                {
-                  name: ':heart: Health',
-                  value: info.health
-                },
+              // The card's flavor text
+              {
+                name: ':book: Description',
+                value: info.flavor
+              },
 
-                // The card's flavor text
-                {
-                  name: ':book: Description',
-                  value: info.flavor
-                },
-
-                // The card's artist
-                {
-                  name: ':paintbrush: Artist',
-                  value: info.artist
-                }
-              ],
-                timestamp: new Date(),
-                footer: {
-                  text: "Hearthstone"
-                }
+              // The card's artist
+              {
+                name: ':paintbrush: Artist',
+                value: info.artist
               }
-            };
-            message.channel.send(infoText);
-          }
+            ],
+              timestamp: new Date(),
+              footer: {
+                text: "Hearthstone"
+              }
+            }
+          };
+          message.channel.send(infoText);
+        }
 
-          // Error catching if API returns undefined
-          catch (error) {
-            message.reply("I can't seem to find the card");
-          }
+        // Error catching if API returns undefined
+        catch (error) {
+          message.reply("I can't seem to find the card");
+        }
       });
-      }
-
-      // Error catching for non-API related issues
-      catch (error) {
-        console.log(error)
-        message.reply("I can't seem to find the card");
-      }
     },
   }
 }

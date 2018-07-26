@@ -2,7 +2,7 @@
  * Author: Emily Nguyen
  * Description: Returns PUBG player statistics
  */
- 
+
 module.exports = {
 
   /* A list of the available commands in this module*/
@@ -20,9 +20,9 @@ module.exports = {
       try {
         let config = require("../config.json");
 
-        var request = require('request');
+        let request = require('request');
 
-        var options = {
+        let options = {
           method: "GET",
           url: `https://api.playbattlegrounds.com/shards/pc-na/players/${argument}`,
           headers: {
@@ -33,7 +33,7 @@ module.exports = {
 
         request(options, (error, response, body) => {
         if (!error) {
-          var stats = JSON.parse(body);
+          let stats = JSON.parse(body);
           console.log(stats);
           let statsText =
           {embed: {

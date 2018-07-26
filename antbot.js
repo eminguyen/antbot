@@ -1,24 +1,24 @@
-var express = require('express');
-var exphbs  = require('express-handlebars');
+const express = require('express');
+const exphbs  = require('express-handlebars');
 
-var app = express();
+const app = express();
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-var port = process.env.PORT || 3000;
-app.listen(port, "0.0.0.0", function() {
+const port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", () => {
   console.log("Listening on Port 3000");
 });
 
-var http = require("http");
-setInterval(function() {
-    http.get("http://antbotjs.herokuapp.com");
+const http = require("http");
+setInterval(() => {
+  http.get("http://antbotjs.herokuapp.com");
 }, 300000);
 
 // Require Discord.js library and Node.js
 try {
-  var Discord = require("discord.js");
+  const Discord = require("discord.js");
   console.log("Starting AntBot with\nNode.js " + process.version + "\nDiscord.js "
   + Discord.version + "\n----------");
 }
@@ -29,10 +29,10 @@ catch (error) {
 
 // Load configuration file
 try {
-  var config = require("./config.json");
+  const config = require("./config.json");
   console.log("Configuration file loaded with the following settings:\nToken: "
   + config.token + "\nPrefix: " + config.prefix + "\n----------");
-  var token = config.token;
+  const token = config.token;
 }
 catch(error) {
   console.log(error);
@@ -44,7 +44,7 @@ if(!token) {
 }
 
 // Log the bot in
-var client = new Discord.Client();
+const client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logging in as ${client.user.tag}!`);
   client.user.setActivity('at http://antbot.net');
@@ -54,21 +54,21 @@ client.on('ready', () => {
 const path = require('path');
 const fs = require('fs');
 
-var commandsList = {};
+let commandsList = {};
 const modulesPath = './commands/';
 const modulesList = fs.readdirSync(modulesPath);
 modulesList.forEach(modulePath => require(path.resolve(modulesPath, modulePath)));
-for(var i = 0; i < modulesList.length; i++) {
-  var module = require(modulesPath + modulesList[i]);
-  for(var j = 0; j < module.commands.length; j++) {
-    var commandName = module.commands[j];
+for(let i = 0; i < modulesList.length; i++) {
+  let module = require(modulesPath + modulesList[i]);
+  for(let j = 0; j < module.commands.length; j++) {
+    let commandName = module.commands[j];
     commandsList[commandName] = module[commandName];
   }
 }
 
 app.use(express.static("public"));
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   handlebarsObject = {
     invite: `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot`,
     users: client.users.size,
@@ -80,14 +80,14 @@ app.get('/', function (req, res) {
   res.render('home', handlebarsObject);
 })
 
-app.get('/about', function (req, res) {
+app.get('/about', (req, res) => {
   handlebarsObject = {
     commands: commandsList
   }
   res.render('about', handlebarsObject);
 })
 
-app.get('/commands', function (req, res) {
+app.get('/commands', (req, res) => {
   handlebarsObject = {
     commands: commandsList
   }
@@ -95,22 +95,22 @@ app.get('/commands', function (req, res) {
 })
 
 // Function to check for commands and isolate name and arguments
-var commandCheck = (message) => {
+let commandCheck = (message) => {
   if(!message.author.bot)
   {
 
     // Checks if the message starts with the prefix and if so, isolate command and arguments
     if(message.content.startsWith(config.prefix)) {
-      var command = message.content.split(" ")[0].substring(config.prefix.length);
-      var argument = message.content.substring(command.length + config.prefix.length + 1);
+      let command = message.content.split(" ")[0].substring(config.prefix.length);
+      let argument = message.content.substring(command.length + config.prefix.length + 1);
     }
 
     // Checks if bot is mentioned and if so, isolate command and arguments
     // Put in try catch block because if bot could be mentioned without command
     else if(message.isMentioned(client.user)) {
       try {
-        var command = message.content.split(" ")[1];
-        var argument = message.content.substring(message.content.split(" ")[0].length +
+        let command = message.content.split(" ")[1];
+        let argument = message.content.substring(message.content.split(" ")[0].length +
         command.length + 2);
       }
       catch(error) {
@@ -133,7 +133,7 @@ var commandCheck = (message) => {
   return;
 }
 
-client.on('message', message => {
+client.on('message', (message) => {
   commandCheck(message);
 });
 

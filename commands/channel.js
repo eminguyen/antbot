@@ -85,7 +85,7 @@ module.exports = {
     method: (client, message, argument) => {
       try {
         if(!argument) {
-          message.reply("what do you want to set the topic to?");
+          message.reply("What do you want to set the topic to?");
         }
         else {
           message.channel.setTopic(argument);

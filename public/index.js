@@ -11,7 +11,6 @@ $( document ).ready(function() {
     });
 });
 
-
 $('.ui.statistic').mouseenter( function(){
     $(this).transition('tada');
   }
