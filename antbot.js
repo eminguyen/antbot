@@ -1,5 +1,7 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
+let token;
+let Discord;
 
 const app = express();
 
@@ -18,7 +20,7 @@ setInterval(() => {
 
 // Require Discord.js library and Node.js
 try {
-  const Discord = require("discord.js");
+  Discord = require("discord.js");
   console.log("Starting AntBot with\nNode.js " + process.version + "\nDiscord.js "
   + Discord.version + "\n----------");
 }
@@ -32,7 +34,7 @@ try {
   const config = require("./config.json");
   console.log("Configuration file loaded with the following settings:\nToken: "
   + config.token + "\nPrefix: " + config.prefix + "\n----------");
-  const token = config.token;
+  token = config.token;
 }
 catch(error) {
   console.log(error);

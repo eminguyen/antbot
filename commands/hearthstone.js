@@ -78,13 +78,12 @@ module.exports = {
             }
           };
           message.channel.send(infoText);
-        }
-
-        // Error catching if API returns undefined
-        catch (error) {
-          message.reply("I can't seem to find the card");
-        }
-      });
-    },
-  }
+        });
+      }
+      // Error catching if API returns undefined
+      catch (error) {
+        message.reply("I can't seem to find the card");
+      }
+    }
+  },
 }
