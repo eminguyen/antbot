@@ -1,7 +1,6 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
-let token;
-let Discord;
+let token, Discord, config;
 
 const app = express();
 
@@ -31,7 +30,7 @@ catch (error) {
 
 // Load configuration file
 try {
-  const config = require("./config.json");
+  config = require("./config.json");
   console.log("Configuration file loaded with the following settings:\nToken: "
   + config.token + "\nPrefix: " + config.prefix + "\n----------");
   token = config.token;
