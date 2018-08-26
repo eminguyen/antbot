@@ -1,6 +1,6 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
-let token, Discord, config;
+let token, Discord, config, command, argument;
 
 const app = express();
 
@@ -102,16 +102,16 @@ let commandCheck = (message) => {
 
     // Checks if the message starts with the prefix and if so, isolate command and arguments
     if(message.content.startsWith(config.prefix)) {
-      let command = message.content.split(" ")[0].substring(config.prefix.length);
-      let argument = message.content.substring(command.length + config.prefix.length + 1);
+      command = message.content.split(" ")[0].substring(config.prefix.length);
+      argument = message.content.substring(command.length + config.prefix.length + 1);
     }
 
     // Checks if bot is mentioned and if so, isolate command and arguments
     // Put in try catch block because if bot could be mentioned without command
     else if(message.isMentioned(client.user)) {
       try {
-        let command = message.content.split(" ")[1];
-        let argument = message.content.substring(message.content.split(" ")[0].length +
+        command = message.content.split(" ")[1];
+        argument = message.content.substring(message.content.split(" ")[0].length +
         command.length + 2);
       }
       catch(error) {
